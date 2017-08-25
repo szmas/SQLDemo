@@ -1,6 +1,6 @@
---ÍêÕû±¸·İ
+--å®Œæ•´å¤‡ä»½
 Backup DATABASE BigValues
 To disk='D:\GPOSDB_backup_201207160152.bak'
 
---»¹Ô­
-restore database Êı¾İ¿â from disk='D:\GPOSDB_backup_201207160152.bak' WITH replace
+--è¿˜åŸ
+restore database æ•°æ®åº“ from disk='D:\GPOSDB_backup_201207160152.bak' WITH replace
