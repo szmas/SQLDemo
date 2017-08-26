@@ -32,5 +32,6 @@ select * from Menu where MENUNAME='mas 'or 1=1 --'
 
 select * from Menu where MENUNAME='' or ''='' and MENUNAME='' or ''=''
 
+Execute(
 
 --使用SQL参数进行保护
