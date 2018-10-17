@@ -1,0 +1,2 @@
+--null与任何字符运算都为空
+select null+1,null-1,null*1,null/1

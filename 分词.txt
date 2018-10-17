@@ -1,0 +1,8 @@
+独占网络讲网站建设分词
+今天独占网络来讲的分词，就是基于Lucene+Analyzer分词
+
+基本信息
+1、Lucene.NET.dll（在线下载）
+2、PanGu.dll（在线下载）
+3、PanGu.Lucene.Analyzer.dll(在线下载)
+4、字典文件（dict文件）
