@@ -1,0 +1,15 @@
+---搜索式 case
+
+select *,
+case when Sex=1 then '男'
+else '女' end
+from Demo
+ 
+
+---条件式 case
+ 
+select *,
+case Sex when 1 then '男'
+else '女' end
+from Demo
+ 
