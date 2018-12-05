@@ -10,3 +10,31 @@ count(*) 会包含null的数据， count(列名) 不包含null的数据
 max(列名) sum(列名) 忽略null的数据
 
 所有的聚合函数，如果以列名为参数，会无视 NULL 值所在的行。
+
+
+--数据库没有数据的时候，sum,max会为null，需要转化为0
+ISNULL(max(num),0)  ISNULL(sum(num),0)
+
+
+
+--数据库的null在程序中为DBNull.Value  ToString转化为空字符串  
+
+string strSql = @"select '' n, ' ' n2 , null n3";
+
+SqlDataAdapter cmd = new SqlDataAdapter(strSql, conn);
+
+cmd.SelectCommand.Transaction = tran;
+
+DataSet ds = new DataSet();
+
+cmd.Fill(ds);
+
+
+ds.Tables[0].Rows[0][0]==DBNull.Value   //false
+ds.Tables[0].Rows[0][1]==DBNull.Value   //false
+ds.Tables[0].Rows[0][2]==DBNull.Value   //true
+
+
+ds.Tables[0].Rows[0][0].ToString()==''  //true
+ds.Tables[0].Rows[0][1].ToString()==''  //false
+ds.Tables[0].Rows[0][2].ToString()==''  //true
