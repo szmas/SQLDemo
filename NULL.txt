@@ -1,2 +1,12 @@
 --null与任何字符运算都为空
 select null+1,null-1,null*1,null/1
+
+
+
+--聚合函数
+
+count(*) 会包含null的数据， count(列名) 不包含null的数据
+
+max(列名) sum(列名) 忽略null的数据
+
+所有的聚合函数，如果以列名为参数，会无视 NULL 值所在的行。
