@@ -1,0 +1,118 @@
+--示例
+
+--------------a
+
+id	  name	    type
+1	    梨子	    1
+2	    香蕉	    2
+3	    iPhone	  3
+4	    nike	    4
+5	    蒙牛	    6
+
+-------------b
+
+id	  name
+1	    水果
+2	    衣服
+3	    手机
+4	    鞋子
+5	    牛奶
+
+-------------交叉连接  5*5=25
+
+select * from a cross join b
+
+id	  name	   type	 id	    name
+1	    梨子	    1	    1	    水果
+2	    香蕉	    2	    1	    水果
+3	    iPhone	  3	    1	    水果
+4	    nike	    4	    1	    水果
+5	    蒙牛	    6	    1	    水果
+1	    梨子	    1	    2	    衣服
+2	    香蕉	    2	    2	    衣服
+3	    iPhone	  3	    2	    衣服
+4	    nike	    4	    2	    衣服
+5	    蒙牛	    6	    2	    衣服
+1	    梨子	    1	    3	    手机
+2	    香蕉	    2	    3	    手机
+3	    iPhone	  3	    3	    手机
+4	    nike	    4	    3	    手机
+5	    蒙牛	    6	    3	    手机
+1	    梨子	    1	    4	    鞋子
+2	    香蕉	    2	    4	    鞋子
+3	    iPhone	  3	    4	    鞋子
+4	    nike	    4	    4	    鞋子
+5	    蒙牛	    6	    4	    鞋子
+1	    梨子	    1	    5	    牛奶
+2	    香蕉	    2	    5	    牛奶
+3	    iPhone	  3	    5	    牛奶
+4	    nike	    4	    5	    牛奶
+5	    蒙牛	    6	    5	    牛奶
+
+
+
+-------------内连接  4*1=5
+
+select *from a inner join b on a.type =b.id
+
+
+id	  name	    type	id	  name
+1	    梨子	    1	    1	    水果
+2	    香蕉	    2	    1	    水果
+3	    iPhone	  3	    3	    手机
+4	    nike	    4	    4	    鞋子
+
+
+-------------左连接  
+
+select *from a left join b on a.type =b.id
+
+
+id	  name	    type	id	  name
+1	    梨子	    1	    1	    水果
+2	    香蕉	    2	    2	    衣服
+3	    iPhone	  3	    3	    手机
+4	    nike	    4	    4	    鞋子
+5	    蒙牛	    6	    NULL    NULL
+
+
+-------------右连接  
+
+select *from a right join b on a.type =b.id
+
+id	  name	type	id	    name
+1	    梨子	  1	    1	    水果
+2	    香蕉	  2	    2	    衣服
+3	    iPhone	3	    3	    手机
+4	    nike	  4	    4	    鞋子
+NULL	NULL	  NULL	5	    牛奶
+
+
+-------------全连接  
+
+select *from a full join b on a.type =b.id 
+
+
+id	  name	    type	id	    name
+1	    梨子	    1	    1	    水果
+2	    香蕉	    2	    2	    衣服
+3	    iPhone	  3	    3	    手机
+4	    nike	    4	    4	    鞋子
+5	    蒙牛	    6	    NULL	NULL
+NULL	NULL	    NULL	5	    牛奶
+
+
+-------------自连接
+
+select * from a a1 left join a a2 on a1.id =a2.id
+
+
+id	  name	    type	id	  name	type
+1	    梨子	    1	    1	    梨子	   1
+2	    香蕉	    2	    2	    香蕉	   2
+3	    iPhone	  3	    3	    iPhone	3
+4	    nike	    4	    4	    nike	  4
+5	    蒙牛	    6	    5	    蒙牛	   6
+
+
+
