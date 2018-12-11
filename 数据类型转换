@@ -1,0 +1,34 @@
+--- CONVERT Syntax:  
+--  CONVERT ( data_type [ ( length ) ] , expression [ , style ] )  
+
+
+-- 日期转字符
+select CONVERT(varchar(50),GETDATE(),20) 'yyyy-mm-dd hh:mi:ss',
+	   CONVERT(varchar(50),GETDATE(),21) 'yyyy-mm-dd hh:mi:ss.fff',
+	   CONVERT(varchar(50),GETDATE(),23) 'yyyy-mm-dd',
+	   CONVERT(varchar(50),GETDATE(),24) 'hh:mi:ss',
+	   CONVERT(varchar(50),GETDATE(),14) 'hh:mi:ss.fff',
+	   CONVERT(varchar(50),GETDATE(),102) 'yyyy.mm.dd',
+	   CONVERT(varchar(50),GETDATE(),111) 'yyyy/mm/dd',
+	   CONVERT(varchar(50),GETDATE(),112) 'yyyymmdd'
+	   
+-- 字符转日期
+select CONVERT(datetime,'20181211'),
+	   CONVERT(datetime,'2018-12-11'),
+	   CONVERT(datetime,'2018/12/11'),
+	   CONVERT(datetime,'2018-12-11 15:48:06'),
+	   CONVERT(datetime,'2018-12-11 15:48:06:333'),
+	   CONVERT(datetime,'2018/12/11 15:48:06'),
+	   CONVERT(datetime,'2018/12/11 15:48:06:333')
+	   
+	   
+	   
+	   
+	   
+-- CAST Syntax:  
+-- CAST ( expression AS data_type [ ( length ) ] )
+
+select CAST('123' as int),
+	   CAST(123 as varchar(50)),
+	   CAST(123 as decimal(10,2)),
+	   CAST('2018-12-11 15:48:06' as datetime) 
