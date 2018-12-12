@@ -55,6 +55,10 @@ id	  name	   type	 id	    name
 
 select *from a inner join b on a.type =b.id
 
+--内联接规则为笛卡尔积+用户谓词过滤 过滤条件ON
+select *from a cross join b
+where a.type =b.id;
+
 
 id	  name	    type	id	  name
 1	    梨子	    1	    1	    水果
@@ -67,6 +71,9 @@ id	  name	    type	id	  name
 
 select *from a left join b on a.type =b.id
 
+--外连接：笛卡儿积+ON过滤+外部行;
+--外连接的第三个逻辑查询处理步骤就是要识别保留表中按照ON条件在另一个表找不到与之匹配的那些行，再把这些行添加到连接的前两个步骤生成的结果中。
+--对于来自连接的非保留表的那些列，追加的外不行中的这些列则用NULL作为占位符;
 
 id	  name	    type	id	  name
 1	    梨子	    1	    1	    水果
